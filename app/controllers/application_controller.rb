@@ -1,5 +1,21 @@
 class ApplicationController < ActionController::Base
 
+    def prelogin
+        file = File.read('./node/oauth2.keys.json')
+        data_hash = JSON.parse(file)
+        
+        conn = Faraday.new(url: 'https://www.googleapis.com/auth/youtube.upload') do |faraday|
+            faraday.request  :url_encoded             # form-encode POST params
+            faraday.response :logger                  # log requests and responses to $stdout
+            faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+        end
+        res = conn.post do |req|
+            req.headers['content-type'] = 'application/json'
+            req.body = data_hash.to_s
+        end
+        raise
+    end
+
     def login
         if !request.params['code'].nil?
             conn = Faraday.new(url: 'https://oauth2.googleapis.com/token') do |faraday|
