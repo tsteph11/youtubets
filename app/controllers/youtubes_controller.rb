@@ -3,7 +3,6 @@ class YoutubesController < ApplicationController
     end
 
     def create
-        @vid = params[:youtube][:youtube].tempfile.path
         youtube_upload_scope = 'https://www.googleapis.com/upload/youtube/v3/videos'
         payload = Faraday::UploadIO.new(
             params[:youtube][:youtube].tempfile.path,
@@ -22,6 +21,7 @@ class YoutubesController < ApplicationController
         end
 
         if res.status == 200
+            @vid = "https://www.youtube.com/watch?#{JSON.parse(res.body)['id']}"
             render 'youtubes/ph'
         else
             raise
