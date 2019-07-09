@@ -7,10 +7,14 @@ https://github.com/Fullscreen/yt#configuring-your-app
 # running the prototype  
 ## requirements  
 ruby 2.6  
-npm  
 
 bundle install in the root directory  
-cd into the node folder  
-npm install  
-then run node client.js  
-this will log you into the app then redirect you to a page to upload your video  
+rails s
+
+#uploading a video
+visit localhost:3000/login
+
+Select the google account that you want to log into, the google account must have a corresponding youtube account.  
+Once you log in it will redirect you to the application.  
+Enter a title for your upload and select a video to upload.  
+Then it will take you to a results page where you may review the uploaded work.
