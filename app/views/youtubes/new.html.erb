@@ -1,0 +1,11 @@
+<br/>
+<div class="container">
+    <%= form_for :youtube, url: {action: "create", id: 1} do |f| %>
+        <%= f.submit "clear", :type => "reset" %>
+        <%= label_tag('title') %>
+        <%= f.text_field(:title) %>
+        <%= label_tag('video file') %>
+        <%= f.file_field(:youtube, accept: 'mp4,avi') %>
+        <%= f.submit('Post') %>
+    <% end %>
+</div>
