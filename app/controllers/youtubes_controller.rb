@@ -28,7 +28,6 @@ class YoutubesController < ApplicationController
         if res.status == 200
             @vid = "https://www.youtube.com/embed/#{JSON.parse(res.body)['id']}"
             render 'youtubes/ph'
-            raise
         else
             raise
         end
