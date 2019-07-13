@@ -20,6 +20,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 
 #allows you to use google api to upload files
+gem 'google-api-client'
 gem 'googleauth'
 gem 'optimist'
 
